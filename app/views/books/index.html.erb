@@ -1,2 +1,30 @@
-<h1>Books#index</h1>
-<p>Find me in app/views/books/index.html.erb</p>
+<main>
+  <p id="notice"><%= notice %></p>
+  <div class="container">
+    <div class="row"> 
+      <div class="col-lg-4">
+        <% if user_signed_in? %>
+          <h2>User info</h2>
+          <p><%= current_user.name %></p>
+          <p><%= current_user.introduction %></p>
+          <%= link_to 'Edit profile', edit_user_path(current_user) %>
+        <% end %>
+
+
+        <h2>New book</h2>
+        <%= form_with model: @book,url: '/books', method: :post do |f| %>
+        <p>Title</p>
+        <%= f.text_field :title %>
+	      <p>Opinion</p>
+        <%= f.text_area :body %>
+	
+	      <div class="create"></div>
+          <%= f.submit 'Create Book' %>
+          <% end %>
+        </div>
+        <div class="col-md-8">
+        <h2>Books</h2>
+        </div>
+    </div>
+  </div>
+</main>
