@@ -7,6 +7,7 @@ class BooksController < ApplicationController
     @books = Book.order(:id)
     @book = Book.new
     @books = Book.all
+    @user = current_user
   end
 
   def create
