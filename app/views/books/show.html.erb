@@ -1,1 +1,26 @@
-<h2>show</h2>
+<main>
+  <p id="notice"><%= notice %></p>
+  <div class="container px-5 px-sm-0" >
+    <div class="row"> 
+      <%= render "books/user_info", user: @user, book: @book_new %>
+        
+        <div class="col-md-8 offset-md-1">
+        <h2>Book detail</h2>
+        <table class="table">
+          <tbody>
+            <tr>
+              <td>
+                <%= image_tag @user.get_profile_image(100,100) %><br>
+                <%= @user.name %>
+              </td>
+              <td><%= @book.title %></td>
+              <td><%= @book.body %></td>
+              <td><%= link_to 'Edit', edit_book_path(@book), class: "btn btn-success"  %></td>
+              <td><%= link_to 'Destroy', book_path(@book), class: "btn btn-danger", method: :delete, data: { confirm: '本当に消しますか？' } %></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</main>
