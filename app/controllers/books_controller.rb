@@ -1,7 +1,6 @@
 class BooksController < ApplicationController
   def index
-    @books = Book.order(:id)
-    @book = Book.new
+    @book_new = Book.new
     @books = Book.all
     @user = current_user
   end
