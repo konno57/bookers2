@@ -1,5 +1,5 @@
 <main>
-  <p id="notice"><%= notice %></p>
+  <p id="notice"></p>
   <div class="container px-5 px-sm-0" >
     <div class="row">
       <%= render "books/user_info", user: @user, book: @book_new %>
@@ -19,7 +19,7 @@
               <% @books.each do |book| %>
             <tr>
               <td><%= image_tag book.user.get_profile_image(100,100) %></td>
-              <td><%= link_to book.title %></td>
+              <td><%= link_to book.title, book_path(book) %></td>
               <td><%= book.body %></td>
             </tr>
               <% end %>

@@ -3,24 +3,22 @@
   <div class="container">
     <div class="row">
       <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
-
-
-<h2>User info</h2>
-<%= form_with model: @user do |f| %>
-  <div class="form-group">
-    <label for="inputName">Name</label><br>
-    <%= f.text_field :name, autofocus: true, id:"inputName", placeholder: "名前", style: "width: 480px;" %><br>
-  </div>
-  <div class="form-group">
-    <label for="inputImage">Image</label><br>
-    <%= f.file_field :profile_image, placeholder: "image", accept: "image/*" %>
-  </div>
-  <div class="form-group">
-    <label for="introduction"%>Introduction</label><br>
-    <%= f.text_area :introduction, id: "introduction", style: "width: 480px;" %>
-  </div>
-  <%= f.submit "Update User" %>
-<% end %>
+        <h2>User info</h2>
+        <%= form_with model: @user do |f| %>
+        <div class="form-group">
+          <label for="inputName">Name</label><br>
+          <%= f.text_field :name, autofocus: true, id:"inputName", placeholder: "名前", style: "width: 480px;" %><br>
+        </div>
+        <div class="form-group">
+          <label for="inputImage">Image</label><br>
+          <%= f.file_field :profile_image, placeholder: "image", accept: "image/*" %>
+        </div>
+        <div class="form-group">
+          <label for="introduction"%>Introduction</label><br>
+          <%= f.text_area :introduction, id: "introduction", style: "width: 480px;" %>
+        </div>
+        <%= f.submit "Update User", class: "btn btn-success" %>
+        <% end %>
 
       </div>
     </div>
