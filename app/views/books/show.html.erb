@@ -1,5 +1,5 @@
 <main>
-  <p id="notice"><%= notice %></p>
+  <p id="notice"></p>
   <div class="container px-5 px-sm-0" >
     <div class="row"> 
       <%= render "books/user_info", user: @user, book: @book_new %>
@@ -13,10 +13,12 @@
                 <%= link_to image_tag(@user.get_profile_image(100,100)), user_path(@user) %><br>
                 <%= link_to @user.name, user_path(@user) %>
               </td>
-              <td><%= @book.title %></td>
+              <td><%= link_to @book.title, book_path(@book) %></td>
               <td><%= @book.body %></td>
+              <% if @book.user == current_user %>
               <td><%= link_to 'Edit', edit_book_path(@book), class: "btn btn-success"  %></td>
               <td><%= link_to 'Destroy', book_path(@book), class: "btn btn-danger", method: :delete, data: { confirm: '本当に消しますか？' } %></td>
+              <% end %>
             </tr>
           </tbody>
         </table>
